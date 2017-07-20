@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+
+		
+		function searchUser(event){
+			var min = 5, max=10; //минимальное и максимальное количество символов для ника.
+			var input = document.getElementById('input');
+			if(event.keyCode == 9 && input.value.search(/^@[A-Za-z0-9_]{min}$/i) != -1){
+				console.log(input.value.substring(1));
+			}
+		// 		console.log(input.value.search(/@[A-Za-z0-9_]{5,15}/i));
+		// 		// console.log(input.value);
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<input id='input' type="text" onkeydown="searchUser(event)" />
+</body>
+</html>
