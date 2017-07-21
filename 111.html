@@ -5,16 +5,25 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script type="text/javascript">
 
-		
-		function searchUser(event){
-			var min = 5, max=10; //минимальное и максимальное количество символов для ника.
-			var input = document.getElementById('input');
-			if(event.keyCode == 9 && input.value.search(/^@[A-Za-z0-9_]{min}$/i) != -1){
-				console.log(input.value.substring(1));
-			}
-		// 		console.log(input.value.search(/@[A-Za-z0-9_]{5,15}/i));
-		// 		// console.log(input.value);
+		var mas = [
+			'maximillian',
+			'rokky',
+			'ben',
+			'marta'
+		];
 
+		function searchUser(event){
+			var input = document.getElementById('input');
+			if(event.keyCode == 9 && input.value.search(/^@[A-Za-z0-9_]{2,10}$/i) != -1){//минимальное и максимальное количество {5,10} символов для ника.
+				var value = input.value.substring(1);
+				var reg = `^${value}`;
+				for (e in mas){
+					if(mas[e].search(reg) != -1) {
+						input.value = `@${mas[e]}`;
+						break;
+					}
+				}
+			}
 
 		}
 
